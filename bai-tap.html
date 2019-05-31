@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<b>Amount</b>:<br>
+<label for="so"><input type="number" id="so"></label><br><br>
+<br><b>From currency</b>:<br>
+<label for="input_currency"><select name="các loại tiền" id="input_currency">
+    <option value="Việt Nam đồng">VND</option>
+    <option value="đô la Mỹ">USD</option>
+    <option value="euro">eur</option>
+    <option value="yên Nhật">jpy</option>
+    <option value="bảng Anh">GBP</option>
+</select></label><br>
+<br><b>To currency</b>:<br>
+<label for="output_currency"><select name="các loại tiền" id="output_currency">
+    <option value="Việt Nam đồng">VND</option>
+    <option value="đô la Mỹ">USD</option>
+    <option value="euro">eur</option>
+    <option value="yên Nhật">jpy</option>
+    <option value="bảng Anh">GBP</option>
+</select></label><br>
+<br>
+<button type="button" onclick="chuyendoi();"><b>convert</b></button><br>
+<br><text id = 'result'></text>
+
+<script>
+    function chuyendoi() {
+        let a =parseFloat( document.getElementById("so").value);
+        let b = document.getElementById("input_currency").value;
+        let c = document.getElementById("output_currency").value;
+        let ketqua;
+        if (b == 'Việt Nam đồng' && c == 'đô la Mỹ') {
+            ketqua = a / 23000;
+        } else if (b == 'Việt Nam đồng' && c == 'euro') {
+            ketqua = a / 26000;
+        } else if (b == 'Việt Nam đồng' && c == 'yên Nhật') {
+            ketqua = a / 200;
+        } else if (b == 'Việt Nam đồng' && c == 'bảng Anh') {
+            ketqua = a / 29000;
+        } else if (b == 'đô la Mỹ' && c == 'Việt Nam đồng') {
+            ketqua = 23000 * a;
+        } else if (b == 'đô la Mỹ' && c == 'euro') {
+            ketqua = (23 / 26) * a;
+        } else if (b == 'đô la Mỹ' && c == 'yên Nhật') {
+            ketqua = 1150 * a;
+        } else if (b == 'đô la Mỹ' && c == 'bảng Anh') {
+            ketqua = (23/29) * a;
+        } else if (b == 'euro' && c == 'yên Nhật') {
+            ketqua = 1300 * a;
+        } else if (b == 'euro' && c == 'bảng Anh') {
+            ketqua = (26/29) * a;
+        } else if (b == 'euro' && c == 'Việt Nam đồng') {
+            ketqua = 26000 * a;
+        } else if (b == 'euro' && c == 'đô la Mỹ') {
+            ketqua = (26/23) * a;
+        } else if (b == 'yên Nhật' && c == 'Việt Nam đồng') {
+            ketqua = 20 * a;
+        } else if (b == 'yên Nhật' && c == 'đô la Mỹ') {
+            ketqua = a/1150;
+        } else if (b == 'yên Nhật' && c == 'euro') {
+            ketqua = a/1300;
+        } else if (b == 'yên Nhật' && c == 'bảng Anh') {
+            ketqua = a/1450;
+        } else if (b == 'bảng Anh' && c == 'Việt Nam đồng') {
+            ketqua = 29000 * a;
+        } else if (b == 'bảng Anh' && c == 'đô la Mỹ') {
+            ketqua = (29/23)* a;
+        } else if (b == 'bảng Anh' && c == 'euro') {
+            ketqua = (29/26) * a;
+        } else if (b == 'yên Nhật' && c == 'Việt Nam đồng') {
+            ketqua = 20 * a;
+        } else if (b == 'bảng Anh' && c == 'yên Nhật') {
+            ketqua = 1450 * a;
+        }
+        document.getElementById('result').innerHTML = 'Kết quả là' +  ketqua;
+
+    }
+</script>
+</body>
+</html>
